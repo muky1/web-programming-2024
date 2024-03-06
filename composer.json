@@ -1,0 +1,11 @@
+{
+    "authors": [
+        {
+            "name": "muky1",
+            "email": "muhamed.begic01@gmail.com"
+        }
+    ],
+    "require": {
+        "mikecao/flight": "^3.5"
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="dist/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MyBlogWebsite</title>
+</head>
+<body>
+    <nav class="bg-gray-800 text-white">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <!-- Logo or Brand Name -->
+            <div class="text-lg font-semibold">
+                <a href="#home" class="hover:text-gray-300 font-bold">MyBlog</a>
+            </div>
+            
+            <!-- Navbar Links -->
+            <div class="hidden md:flex items-center space-x-4 font-medium" id="menu">
+                <a href="#home" class="hover:text-gray-300">Home</a>
+                <a href="#about" class="hover:text-gray-300">About</a>
+                <a href="#categories" class="hover:text-gray-300">Categories</a>
+                <a href="#contact" class="hover:text-gray-300 ">Contact</a>
+                <a href="#login" class="hover:text-gray-300 ">Login</a>
+    
+                <!-- Search Field -->
+                <div class="relative">
+                    <input type="search" name="search" placeholder="Search..." class="pl-8 pr-4 py-2 rounded bg-gray-700 focus:bg-gray-600 focus:outline-none">
+                    <svg class="w-4 h-4 absolute left-2 top-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                </div>
+            </div>
+
+            <!-- Hamburger Menu -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-200 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <section id="main-content" class="flex-1">
+        <div>
+            <p class="text-5xl text-center text-red-900 font-black">HELLO, THIS IS THE SETUP OF MY BLOG WEBSITE</p>
+        </div>
+    </section>
+    <footer id="footer" class="bg-gray-800 text-white flex flex-row justify-center items-center min-h-10">
+        <div class="text-center">
+            <p>Copyright 2024, Muhamed</p>
+        </div>
+        <div class="ml-4">
+            <a href="https://github.com/muky1">
+                <i class="fa-brands fa-github p-1"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/muhamed-begi%C4%87-839a461b9/">
+                <i class="fa-brands fa-linkedin p-1"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

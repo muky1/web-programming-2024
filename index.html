@@ -17,11 +17,11 @@
             
             <!-- Navbar Links -->
             <div class="hidden md:flex items-center space-x-4 font-medium" id="menu">
-                <a href="#home" class="hover:text-gray-300">Home</a>
-                <a href="#about" class="hover:text-gray-300">About</a>
-                <a href="#categories" class="hover:text-gray-300">Categories</a>
-                <a href="#contact" class="hover:text-gray-300 ">Contact</a>
-                <a href="#login" class="hover:text-gray-300 ">Login</a>
+                <a href="#" id="home" class="hover:text-gray-300">Home</a>
+                <a href="#about" id="about" class="hover:text-gray-300">About</a>
+                <a href="#categories" id="categories" class="hover:text-gray-300">Categories</a>
+                <a href="#contact" id="contact" class="hover:text-gray-300 ">Contact</a>
+                <a href="pages/login.html" id="login" class="hover:text-gray-300 ">Login</a>
     
                 <!-- Search Field -->
                 <div class="relative">
@@ -38,22 +38,56 @@
             </div>
         </div>
     </nav>
-    <section id="main-content" class="flex-1">
+    <section id="main-content" class="flex-1 items-center">
         <div>
             <p class="text-5xl text-center text-red-900 font-black">HELLO, THIS IS THE SETUP OF MY BLOG WEBSITE</p>
         </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 class="text-4xl font-bold text-center mb-12">Latest Blog Posts</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 sm:gap-6 md:gap-2 justify-items-center">
+                
+                <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden w-[400px]">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-3">Post Title Here</h3>
+                        <p class="text-gray-700 text-base h-24 overflow-hidden">This is the summary of the blog post. Keep it brief, but informative enough that visitors would want to click and read more.</p>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-100 mt-auto">
+                        <span class="text-sm text-gray-600">9 November 2023</span>
+                        <a href="#" class="text-blue-500 text-sm float-right">Read more</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden w-[400px]">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-3">Cutting-Edge AI: Changing the Game in 2024</h3>
+                        <p class="text-gray-700 text-base h-24 overflow-hidden">Explore the latest developments in artificial intelligence and how they're revolutionizing industries from healthcare to finance.</p>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-100 mt-auto">
+                        <span class="text-sm text-gray-600">15 January 2024</span>
+                        <a href="#" class="text-blue-500 text-sm float-right">Read more</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden w-[400px]">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-3">Navigating the Cryptocurrency Market: Tips for Beginners</h3>
+                        <p class="text-gray-700 text-base h-24 overflow-hidden">The cryptocurrency market can be intimidating for newcomers. Learn the basics and get valuable tips on how to make informed investment decisions.</p>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-100 mt-auto">
+                        <span class="text-sm text-gray-600">5 March 2024</span>
+                        <a href="#" class="text-blue-500 text-sm float-right">Read more</a>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
     </section>
     <footer id="footer" class="bg-gray-800 text-white flex flex-row justify-center items-center min-h-10">
         <div class="text-center">
-            <p>Copyright 2024, Muhamed</p>
-        </div>
-        <div class="ml-4">
-            <a href="https://github.com/muky1">
-                <i class="fa-brands fa-github p-1"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/muhamed-begi%C4%87-839a461b9/">
-                <i class="fa-brands fa-linkedin p-1"></i>
-            </a>
+            <p>© 2024, Muhamed</p>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -9,88 +9,67 @@
 </head>
 <body>
     <nav class="bg-gray-800 text-white">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <!-- Logo or Brand Name -->
-            <div class="text-lg font-semibold">
-                <a href="#home" class="hover:text-gray-300 font-bold">MyBlog</a>
-            </div>
-            
-            <!-- Navbar Links -->
-            <div class="hidden md:flex items-center space-x-4 font-medium" id="menu">
-                <a href="#" id="home" class="hover:text-gray-300">Home</a>
-                <a href="#about" id="about" class="hover:text-gray-300">About</a>
-                <a href="#categories" id="categories" class="hover:text-gray-300">Categories</a>
-                <a href="#contact" id="contact" class="hover:text-gray-300 ">Contact</a>
-                <a href="pages/login.html" id="login" class="hover:text-gray-300 ">Login</a>
+        <div class="container mx-auto flex flex-wrap justify-between items-center p-4">
+            <!-- Brand name/link -->
+            <a href="#home" class="text-xl font-bold">MyBlog</a>
+
+             <!-- Mobile menu button -->
+             <button class="md:hidden" id="mobile-menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
     
+            <!-- Menu Links and Search Field -->
+            <div class="hidden w-full md:flex md:items-center md:w-auto text-center" id="navbar-links">
+                <div class="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0">
+                    <a href="#home" id="home" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Home</a>
+                    <a href="#about" id="about" class="block hover:bg-gray-700 px-3 py-2 rounded-md">About</a>
+                    <a href="#categories" id="categories" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Categories</a>
+                    <a href="#contact" id="contact" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Contact</a>
+                    <a href="pages/login.html" id="login" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Login</a>
+                </div>
                 <!-- Search Field -->
-                <div class="relative">
-                    <input type="search" name="search" placeholder="Search..." class="pl-8 pr-4 py-2 rounded bg-gray-700 focus:bg-gray-600 focus:outline-none">
+                <div class="relative mt-4 md:mt-0 lg:ml-4">
+                    <input type="search" name="search" placeholder="Search..." class="w-full pl-8 pr-4 py-2 rounded bg-gray-700 focus:bg-gray-600 focus:outline-none">
                     <svg class="w-4 h-4 absolute left-2 top-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                 </div>
             </div>
-
-            <!-- Hamburger Menu -->
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-gray-200 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
         </div>
     </nav>
-    <section id="main-content" class="flex-1 items-center">
-        <div>
-            <p class="text-5xl text-center text-red-900 font-black">HELLO, THIS IS THE SETUP OF MY BLOG WEBSITE</p>
-        </div>
-
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h1 class="text-4xl font-bold text-center mb-12">Latest Blog Posts</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 sm:gap-6 md:gap-2 justify-items-center">
-                
-                <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden w-[400px]">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-3">Post Title Here</h3>
-                        <p class="text-gray-700 text-base h-24 overflow-hidden">This is the summary of the blog post. Keep it brief, but informative enough that visitors would want to click and read more.</p>
-                    </div>
-                    <div class="px-6 py-4 bg-gray-100 mt-auto">
-                        <span class="text-sm text-gray-600">9 November 2023</span>
-                        <a href="#" class="text-blue-500 text-sm float-right">Read more</a>
-                    </div>
+    
+    <main class="flex-1 flex flex-col">
+        <section id="main-content" class="flex-1 items-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <h1 class="text-4xl font-bold text-center mb-12">Latest Blog Posts</h1>
+                <div id="blog-summary-container" class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 sm:gap-6 md:gap-2 justify-items-center">
+                    
+                    
                 </div>
-
-                <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden w-[400px]">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-3">Cutting-Edge AI: Changing the Game in 2024</h3>
-                        <p class="text-gray-700 text-base h-24 overflow-hidden">Explore the latest developments in artificial intelligence and how they're revolutionizing industries from healthcare to finance.</p>
-                    </div>
-                    <div class="px-6 py-4 bg-gray-100 mt-auto">
-                        <span class="text-sm text-gray-600">15 January 2024</span>
-                        <a href="#" class="text-blue-500 text-sm float-right">Read more</a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden w-[400px]">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-3">Navigating the Cryptocurrency Market: Tips for Beginners</h3>
-                        <p class="text-gray-700 text-base h-24 overflow-hidden">The cryptocurrency market can be intimidating for newcomers. Learn the basics and get valuable tips on how to make informed investment decisions.</p>
-                    </div>
-                    <div class="px-6 py-4 bg-gray-100 mt-auto">
-                        <span class="text-sm text-gray-600">5 March 2024</span>
-                        <a href="#" class="text-blue-500 text-sm float-right">Read more</a>
-                    </div>
-                </div>
-
-                
             </div>
-        </div>
 
-    </section>
+            <div class="container bg-white rounded-lg flex justify-center text-center mx-auto my-6 p-4">
+                <div class="p-4 text-gray-800">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">Share Your Story</h2>
+                    <p class="mb-6 text-lg lg:text-xl">Got something interesting to say? Write your own blog!</p>
+                    <a href="#create_blog" id="create-blog-btn" class="bg-gray-800 hover:bg-blue-700 text-white text-lg font-bold py-2 px-4 w-[350px] rounded flex text-center items-center justify-center mx-auto">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+
+        </section>
+    
+    </main>
+
     <footer id="footer" class="bg-gray-800 text-white flex flex-row justify-center items-center min-h-10">
         <div class="text-center">
             <p>© 2024, Muhamed</p>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/blogService.js"></script>
+    <script src="assets/js/utils/jquery.spapp.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,34 +1,33 @@
 $(document).ready(function() {
-    $("#menu-toggle").click(function() {
-        $("#menu").toggleClass("hidden");
-    })
-})
+    function loadPage(pageName) {
+        $("#main-content").load(`pages/${pageName}.html`, function() {
+            history.pushState({ page: pageName }, pageName, `#${pageName}`);
+        });
+    }
 
-$(document).ready(function() {
-    $("nav a#about").on('click', function(e) {
+    $("#add-blog").on('click', function(e) {
         e.preventDefault();
-        $("#main-content").load("pages/about.html");
-    })
-})
+        loadPage('blog');
+    });
 
-$(document).ready(function() {
-    $("nav a#categories").on('click', function(e) {
+    document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+        var navbarLinks = document.getElementById('navbar-links');
+        navbarLinks.classList.toggle('hidden');
+    });
+
+    let mySpApp = new window.SpApp({
+        defaultView: 'home',
+        templateDir: 'pages/',
+        pageNotFound: '404.html'
+    });
+
+    // Start the SPA
+    mySpApp.run();
+
+    // Bind navigation links to update the hash
+    $("nav a:not(#login)").on('click', function(e) {
         e.preventDefault();
-        $("#main-content").load("pages/categories.html");
-    })
-})
-
-$(document).ready(function() {
-    $("nav a#home").on('click', function(e) {
-        e.preventDefault();
-        window.location.href = 'index.html';
-    })
-})
-
-$(document).ready(function() {
-    $("nav a#contact").on('click', function(e) {
-        e.preventDefault();
-        $("#main-content").load("pages/contact.html");
-    })
-})
-
+        var hash = $(this).attr('href');
+        window.location.hash = hash;
+    });
+});

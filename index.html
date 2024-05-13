@@ -1,75 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="dist/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="dist/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>MyBlogWebsite</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="bg-gray-800 text-white">
-        <div class="container mx-auto flex flex-wrap justify-between items-center p-4">
-            <!-- Brand name/link -->
-            <a href="#home" class="text-xl font-bold">MyBlog</a>
+      <div
+        class="container mx-auto flex flex-wrap justify-between items-center p-4"
+      >
+        <!-- Brand name/link -->
+        <a href="#home" class="text-xl font-bold">MyBlog</a>
 
-             <!-- Mobile menu button -->
-             <button class="md:hidden" id="mobile-menu-toggle">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-    
-            <!-- Menu Links and Search Field -->
-            <div class="hidden w-full md:flex md:items-center md:w-auto text-center" id="navbar-links">
-                <div class="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0">
-                    <a href="#home" id="home" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Home</a>
-                    <a href="#about" id="about" class="block hover:bg-gray-700 px-3 py-2 rounded-md">About</a>
-                    <a href="#categories" id="categories" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Categories</a>
-                    <a href="#contact" id="contact" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Contact</a>
-                    <a href="pages/login.html" id="login" class="block hover:bg-gray-700 px-3 py-2 rounded-md">Login</a>
-                </div>
-                <!-- Search Field -->
-                <div class="relative mt-4 md:mt-0 lg:ml-4">
-                    <input type="search" name="search" placeholder="Search..." class="w-full pl-8 pr-4 py-2 rounded bg-gray-700 focus:bg-gray-600 focus:outline-none">
-                    <svg class="w-4 h-4 absolute left-2 top-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
-                </div>
-            </div>
+        <!-- Mobile menu button -->
+        <button class="md:hidden" id="mobile-menu-toggle">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Menu Links and Search Field -->
+        <div
+          class="hidden w-full md:flex md:items-center md:w-auto text-center"
+          id="navbar-links"
+        >
+          <div class="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0">
+            <a href="#home" class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              >About</a
+            >
+            <a
+              href="#categories"
+              class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              >Categories</a
+            >
+            <a
+              href="#contact"
+              class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              >Contact</a
+            >
+            <a
+              href="pages/login.html"
+              class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              >Login</a
+            >
+          </div>
+          <!-- Search Field -->
+          <div class="relative mt-4 md:mt-0 lg:ml-4">
+            <input
+              type="search"
+              name="search"
+              placeholder="Search..."
+              class="w-full pl-8 pr-4 py-2 rounded bg-gray-700 focus:bg-gray-600 focus:outline-none"
+            />
+            <svg
+              class="w-4 h-4 absolute left-2 top-3 text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
         </div>
+      </div>
     </nav>
-    
-    <main class="flex-1 flex flex-col">
-        <section id="main-content" class="flex-1 items-center">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 class="text-4xl font-bold text-center mb-12">Latest Blog Posts</h1>
-                <div id="blog-summary-container" class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 sm:gap-6 md:gap-2 justify-items-center">
-                    
-                    
-                </div>
-            </div>
 
-            <div class="container bg-white rounded-lg flex justify-center text-center mx-auto my-6 p-4">
-                <div class="p-4 text-gray-800">
-                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">Share Your Story</h2>
-                    <p class="mb-6 text-lg lg:text-xl">Got something interesting to say? Write your own blog!</p>
-                    <a href="#create_blog" id="create-blog-btn" class="bg-gray-800 hover:bg-blue-700 text-white text-lg font-bold py-2 px-4 w-[350px] rounded flex text-center items-center justify-center mx-auto">
-                        Get Started
-                    </a>
-                </div>
-            </div>
-
-        </section>
-    
+    <main id="spapp" role="main">
+      <section id="home" data-load="home.html"></section>
+      <section id="about" data-load="about.html"></section>
+      <section id="contact" data-load="contact.html"></section>
+      <section id="categories" data-load="categories.html"></section>
+      <section id="error_404"></section>
     </main>
 
-    <footer id="footer" class="bg-gray-800 text-white flex flex-row justify-center items-center min-h-10">
-        <div class="text-center">
-            <p>© 2024, Muhamed</p>
-        </div>
+    <footer
+      id="footer"
+      class="bg-gray-800 text-white flex flex-row justify-center items-center min-h-10"
+    >
+      <div class="text-center">
+        <p>© 2024, Muhamed</p>
+      </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/blogService.js"></script>
     <script src="assets/js/utils/jquery.spapp.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>

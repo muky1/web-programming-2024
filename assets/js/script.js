@@ -1,33 +1,15 @@
-$(document).ready(function() {
-    function loadPage(pageName) {
-        $("#main-content").load(`pages/${pageName}.html`, function() {
-            history.pushState({ page: pageName }, pageName, `#${pageName}`);
-        });
-    }
+$(document).ready(function () {
+  // Initialize the SPA framework with configuration
+  var app = $.spapp({
+    defaultView: "home", // Set the default view
+    pageNotFound: "error_404", // Set the page not found view
+  });
 
-    $("#add-blog").on('click', function(e) {
-        e.preventDefault();
-        loadPage('blog');
-    });
+  // Start the SPA
+  app.run();
 
-    document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-        var navbarLinks = document.getElementById('navbar-links');
-        navbarLinks.classList.toggle('hidden');
-    });
-
-    let mySpApp = new window.SpApp({
-        defaultView: 'home',
-        templateDir: 'pages/',
-        pageNotFound: '404.html'
-    });
-
-    // Start the SPA
-    mySpApp.run();
-
-    // Bind navigation links to update the hash
-    $("nav a:not(#login)").on('click', function(e) {
-        e.preventDefault();
-        var hash = $(this).attr('href');
-        window.location.hash = hash;
-    });
+  // Mobile menu toggle
+  $("#mobile-menu-toggle").click(function () {
+    $("#navbar-links").toggleClass("hidden");
+  });
 });

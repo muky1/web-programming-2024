@@ -1,49 +1,75 @@
+(function ($) {
+  $.spapp = function (options) {
+    // set config and routes
+    var config,
+      routes = {};
 
-// spapp.js
-(function($) {
-    class SpApp {
-        constructor(options) {
-            this.config = $.extend({
-                defaultView: 'home',
-                templateDir: 'pages/',
-                pageNotFound: '404.html',
-                homeContent: $('#main-content').html()
-            }, options);
+    config = $.extend(
+      {
+        defaultView: $("main#spapp > section:last-child").attr("id"),
+        templateDir: "./tpl/",
+        pageNotFound: false,
+      },
+      options
+    );
+
+    $("main#spapp > section").each(function (k, e) {
+      var elm = $(this);
+      routes[elm.attr("id")] = {
+        view: elm.attr("id"),
+        load: elm.data("load"),
+        onCreate: function () {},
+        onReady: function () {},
+      };
+    });
+    // update rotues programatically
+    this.route = function (options) {
+      $.extend(routes[options.view], options);
+    };
+
+    // manage hash change
+    var routeChange = function () {
+      var id = location.hash.slice(1);
+      var route = routes[id];
+      var elm = $("#" + id);
+
+      if (!elm || !route) {
+        if (config.pageNotFound) {
+          window.location.hash = config.pageNotFound;
+          return;
         }
+        console.log(id + " not defined");
+        return;
+      }
 
-        routeChange(hash) {
-            let self = this;
-            if (hash === 'home' || hash === '') {
-                $("#main-content").html(self.config.homeContent);
-                history.replaceState(null, null, ' '); // Clear the hash
-            } else {
-                let loadUrl = self.config.templateDir + hash + '.html';
-                $("#main-content").load(loadUrl, function(response, status, xhr) {
-                    if (status === "error") {
-                        $("#main-content").load(self.config.templateDir + self.config.pageNotFound);
-                    }
-                });
-            }
+      if (elm.hasClass("spapp-created")) {
+        route.onReady();
+      } else {
+        elm.addClass("spapp-created");
+        if (!route.load) {
+          route.onCreate();
+          route.onReady();
+        } else {
+          elm.load(config.templateDir + route.load, function () {
+            route.onCreate();
+            route.onReady();
+          });
         }
+      }
+    };
 
-        run() {
-            let self = this;
-            $(window).on('hashchange', function() {
-                let hash = location.hash.slice(1);
-                self.routeChange(hash);
-            });
+    // and run
+    this.run = function () {
+      window.addEventListener("hashchange", function () {
+        routeChange();
+      });
+      if (!window.location.hash) {
+        window.location.hash = config.defaultView;
+      } else {
+        routeChange();
+      }
+    };
 
-            if (!location.hash) {
-                // Trigger the default view if there is no hash
-                location.hash = self.config.defaultView;
-            } else {
-                // Trigger the route change function on initial load
-                self.routeChange(location.hash.slice(1));
-            }
-        }
-    }
-
-    // Expose SpApp to the global object
-    window.SpApp = SpApp;
-
+    return this;
+  };
 })(jQuery);

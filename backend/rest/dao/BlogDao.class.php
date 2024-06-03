@@ -12,7 +12,7 @@ class BlogDao extends BaseDao {
 
     public function add($blog) {
         return $this->insert('blogs', $blog);
-      }
+    }
 
     public function get_blog_by_id($blog_id){
         return $this->query_unique("SELECT * FROM blogs WHERE id = :id", ["id" => $blog_id]);

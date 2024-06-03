@@ -4,6 +4,7 @@
 require "../../vendor/autoload.php";
 
 // Routes
+require "../rest/routes/middlewareRoutes.php";
 require "../rest/routes/blogRoutes.php";
 require "../rest/routes/userRoutes.php";
 require "../rest/routes/categoryRoutes.php";

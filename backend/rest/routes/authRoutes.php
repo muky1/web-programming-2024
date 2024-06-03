@@ -50,7 +50,7 @@ Flight::group("/auth", function(){
         $jwt_payload = [
             "user" => $user,
             "iat" => time(),
-            "exp" => (time() + (60 * 60))
+            "exp" => (time() + (60 * 60 * 24))
         ];
 
         $token =JWT::encode(

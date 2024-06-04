@@ -38,19 +38,21 @@ class BaseDao {
       return [$order_column, $order_direction];
     }
   
-    public function __construct($table)
-    {
+    public function __construct($table) {
       $this->table = $table;
       try {
-        $this->connection = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8;" , DB_USER, DB_PASS, [
-          PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-          PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]);
-      } catch (PDOException $e) {
-        print_r($e);
-        throw $e;
+          $this->connection = new PDO(
+              "mysql:host=" . Config::DB_HOST() . ";dbname=" . Config::DB_NAME() . ";port=" . Config::DB_PORT(),
+              Config::DB_USER(),
+              Config::DB_PASSWORD(), [
+                  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+              ]
+          );
+      } catch (PDOException $e){
+          throw $e;
       }
-    }
+  }
   
     public function insert($table, $entity)
     {

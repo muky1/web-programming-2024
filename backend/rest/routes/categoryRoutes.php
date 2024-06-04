@@ -9,6 +9,9 @@ Flight::group("/categories", function (){
      *     path="/categories/all",
      *     tags={"Categories"},
      *     summary="Retrieve all categories",
+     *     security={
+     *     {"ApiKey": {}}   
+     *     },
      *     @OA\Response(
      *         response=200,
      *         description="An array of all categories"
@@ -25,6 +28,9 @@ Flight::group("/categories", function (){
      * @OA\Get(
      *     path="/categories/category/{category_id}",
      *     summary="Get a category by its ID",
+     *     security={
+     *     {"ApiKey": {}}   
+     *     },
      *     tags={"Categories"},
      *     @OA\Parameter(
      *         name="category_id",

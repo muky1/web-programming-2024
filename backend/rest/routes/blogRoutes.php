@@ -9,6 +9,9 @@ Flight::group("/blogs", function() {
     *     path="/blogs/all",
     *     tags={"Blogs"},
     *     summary="List all blogs",
+    *     security={
+    *     {"ApiKey": {}}   
+    *     },
     *     @OA\Response(
     *         response=200,
     *         description="An array of all blog posts"
@@ -26,6 +29,9 @@ Flight::group("/blogs", function() {
     *     path="/blogs/blog",
     *     tags={"Blogs"},
     *     summary="Retrieve a single blog by query parameter ID",
+    *     security={
+    *     {"ApiKey": {}}   
+    *     },
     *     @OA\Parameter(
     *         name="blog_id",
     *         in="query",
@@ -55,6 +61,9 @@ Flight::group("/blogs", function() {
      *      path="/blogs/blog/{blog_id}",
      *      tags={"Blogs"},
      *      summary="Get a single blog by ID",
+     *      security={
+     *      {"ApiKey": {}}   
+     *      },
      *      @OA\Parameter(
      *          name="blog_id",
      *          in="path",
@@ -91,6 +100,9 @@ Flight::group("/blogs", function() {
     *     path="/blogs/blog/{blog_id}/comments",
     *     tags={"Blogs"},
     *     summary="Retrieve all comments for a single blog by path parameter ID",
+    *     security={
+    *     {"ApiKey": {}}   
+    *     },
     *     @OA\Parameter(
     *         name="blog_id",
     *         in="path",
@@ -127,6 +139,9 @@ Flight::group("/blogs", function() {
     *     path="/blogs/add",
     *     tags={"Blogs"},
     *     summary="Add a new blog",
+    *     security={
+    *     {"ApiKey": {}}   
+    *     },
     *     @OA\RequestBody(
     *         description="Data format for adding a blog",
     *         required=true,
@@ -163,6 +178,9 @@ Flight::group("/blogs", function() {
     *     path="/blogs/delete/{blog_id}",
     *     tags={"Blogs"},
     *     summary="Delete a blog by ID",
+    *     security={
+    *     {"ApiKey": {}}   
+    *     },
     *     @OA\Parameter(
     *         name="blog_id",
     *         in="path",

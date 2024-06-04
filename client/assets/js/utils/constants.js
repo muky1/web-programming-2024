@@ -3,7 +3,7 @@ var Constants = {
     if (location.hostname == "localhost") {
       return "http://localhost/web-programming-2024/backend/rest/";
     } else {
-      // return url hostname for the backend
+      return "https://sea-turtle-app-oa8l2.ondigitalocean.app/backend/rest/";
     }
   },
 };

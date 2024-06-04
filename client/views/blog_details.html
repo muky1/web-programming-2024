@@ -1,0 +1,57 @@
+<div class="container mx-auto px-4 py-8">
+  <div id="blog-details" class="p-6 bg-white rounded-lg shadow-md"></div>
+</div>
+<script>
+  //   $(document).ready(function () {
+  //     function getBlogIdFromHash() {
+  //       const hash = window.location.hash.split("/");
+  //       return hash.length > 1 ? hash[1] : null;
+  //     }
+
+  //     function loadBlogDetails(blogId) {
+  //       fetch(Constants.get_api_base_url() + `blogs/blog/${blogId}`)
+  //         .then((response) => response.json())
+  //         .then((blog) => {
+  //           if (blog) {
+  //             const blogDetailsSection = document.getElementById("blog-details");
+  //             blogDetailsSection.innerHTML = `
+  //                 <div class="mb-4">
+  //                   <h2 class="text-3xl font-bold text-gray-900">${
+  //                     blog.title
+  //                   }</h2>
+  //                   <div class="flex justify-between items-center text-gray-600">
+  //                     <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">${
+  //                       blog.category_id
+  //                     }</span>
+  //                     <span>${new Date(
+  //                       blog.created_at
+  //                     ).toLocaleDateString()}</span>
+  //                   </div>
+  //                   <div class="text-gray-700 text-sm mt-4">Author: ${
+  //                     blog.author
+  //                   }</div>
+  //                 </div>
+  //                 <div class="prose lg:prose-xl">${blog.content}</div>
+  //                 <div id="comments-section" class="mt-8">
+  //                   <h3 class="text-2xl font-semibold text-gray-900 mb-4">Comments</h3>
+  //                   <button id="view-comments-btn" class="mb-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700">View Comments</button>
+  //                   <div id="comments-container" class="space-y-4"><p class="text-gray-600">No comments yet.</p></div>
+  //                 </div>
+  //               `;
+  //             document.title = blog.title; // Update page title to the blog's title
+  //           } else {
+  //             const blogDetailsSection = document.getElementById("blog-details");
+  //             blogDetailsSection.innerHTML = "<p>Blog not found.</p>";
+  //           }
+  //         })
+  //         .catch((error) =>
+  //           console.error("Error loading the blog details:", error)
+  //         );
+  //     }
+
+  //     const blogId = getBlogIdFromHash();
+  //     if (blogId) {
+  //       loadBlogDetails(blogId);
+  //     }
+  //   });
+</script>

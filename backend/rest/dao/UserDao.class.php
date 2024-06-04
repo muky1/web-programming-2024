@@ -13,4 +13,8 @@ class UserDao extends BaseDao {
                   WHERE email = :email";
         return $this->query_unique($query, ['email' => $email]);
     }
+
+    public function add($user) {
+        return $this->insert('users', $user);
+    }
 }

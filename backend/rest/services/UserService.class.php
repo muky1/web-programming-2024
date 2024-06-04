@@ -14,4 +14,8 @@ class UserService {
     public function get_user_by_email($email){
         return $this->user_dao->get_user_by_email($email);
     }
+
+    public function add_user($user) {
+        return $this->user_dao->add($user);
+    }
 }

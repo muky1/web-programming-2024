@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="dist/styles.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="dist/styles.css" rel="stylesheet" />
+
     <title>MyBlogWebsite</title>
   </head>
   <body>
@@ -19,7 +18,11 @@
         class="container mx-auto flex flex-wrap justify-between items-center p-4"
       >
         <!-- Brand name/link -->
-        <a href="#home" class="text-xl font-bold">MyBlog</a>
+        <div class="flex flex-col text-center">
+          <a href="#home" class="text-xl font-bold">MyBlog</a>
+          <span class="hidden" id="username-display"></span>
+          <span class="hidden" id="email-display"></span>
+        </div>
 
         <!-- Mobile menu button -->
         <button class="md:hidden" id="mobile-menu-toggle">
@@ -48,6 +51,11 @@
               >Home</a
             >
             <a
+              href="#create_blog"
+              class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              >Create a blog</a
+            >
+            <a
               href="#about"
               class="block hover:bg-gray-700 px-3 py-2 rounded-md"
               >About</a
@@ -65,10 +73,18 @@
             <a
               href="pages/login.html"
               class="block hover:bg-gray-700 px-3 py-2 rounded-md"
+              id="login-link"
               >Login</a
+            >
+            <a
+              href="#"
+              class="block hover:bg-gray-700 px-3 py-2 rounded-md hidden"
+              id="logout-link"
+              >Logout</a
             >
           </div>
           <!-- Search Field -->
+
           <div class="relative mt-4 md:mt-0 lg:ml-4">
             <input
               type="search"
@@ -93,12 +109,14 @@
       </div>
     </nav>
 
-    <main id="spapp" role="main">
+    <main id="spapp" role="main" class="flex-1">
       <section id="home" data-load="home.html"></section>
       <section id="about" data-load="about.html"></section>
+      <section id="create_blog" data-load="create_blog.html"></section>
       <section id="contact" data-load="contact.html"></section>
       <section id="categories" data-load="categories.html"></section>
-      <section id="error_404"></section>
+      <section id="blog_details" data-load="blog_details.html"></section>
+      <section id="error_404" data-load="error_404.html"></section>
     </main>
 
     <footer
@@ -109,9 +127,66 @@
         <p>© 2024, Muhamed</p>
       </div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/blogService.js"></script>
-    <script src="assets/js/utils/jquery.spapp.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/utils/constants.js"></script>
+    <script src="assets/js/utils/jquery.spapp.js"></script>
   </body>
 </html>
+
+<script>
+  $(document).ready(function () {
+    var app = $.spapp({
+      defaultView: "#home",
+      pageNotFound: "#error_404",
+      templateDir: "./views/",
+    });
+    app.run();
+
+    function checkLogin() {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const data = decodeJwtToken(token);
+        $("#login-link").hide();
+        $("#logout-link").show();
+        $("#username-display").text(`${data.user.first_name}`).show();
+        $("#email-display").text(`${data.user.email}`).show();
+      } else {
+        $("#login-link").show();
+        $("#logout-link").hide();
+        $("#username-display").hide();
+        $("#email-display").hide();
+      }
+    }
+
+    $("#logout-link").click(function (e) {
+      e.preventDefault();
+      localStorage.removeItem("token");
+      window.location.href = "#home";
+      checkLogin();
+      window.location.reload();
+      alert("Logout successful!.");
+    });
+
+    function decodeJwtToken(token) {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
+      return JSON.parse(jsonPayload);
+    }
+
+    let token = localStorage.getItem("token");
+    let user = decodeJwtToken(token).user;
+    localStorage.setItem("userID", user.id);
+
+    checkLogin();
+  });
+</script>
